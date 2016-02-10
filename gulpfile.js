@@ -1,11 +1,18 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
+var bower = require('gulp-bower');
 
 var config = {
+    bowerDir: './bower_components',
     bootstrapDir: './bower_components/bootstrap-sass',
     publicDir: './public',
     sassDir: './resources/sass'
 };
+
+gulp.task('bower', function() {
+    return bower()
+        .pipe(gulp.dest(config.bowerDir))
+});
 
 
 gulp.task('css', function(){
